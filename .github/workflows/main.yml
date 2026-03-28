@@ -92,7 +92,6 @@ jobs:
             trivy-image-report.json
             trivy-image-report.html
             
-
       # ---------------- Email Notification ----------------
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
