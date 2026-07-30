@@ -43,13 +43,11 @@ jobs:
           docker push $IMAGE_TAG
           docker tag amazon ${{ secrets.DOCKER_USERNAME }}/amazon:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/amazon:latest
-
       # ---------------- Deploy Container ----------------
       - name: Deploy Container
         run: |
           docker rm -f amazon || true
           docker run -d --name amazon -p 80:80 $IMAGE_TAG
-
       # ---------------- Upload Reports as Artifacts ----------------
       - name: Upload Scan Reports
         uses: actions/upload-artifact@v4
